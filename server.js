@@ -4,7 +4,7 @@ import passport from 'passport'
 import flash from 'express-flash'
 import session from 'express-session'
 import methodOverride from 'method-override'
-import Mongoose from 'mongoose'
+import mongoose from 'mongoose'
 import login from './routes/login.js'
 import register from './routes/register.js'
 import logout from './routes/logout.js'
@@ -25,7 +25,7 @@ initializePassport(
     id => users.find(user => user.id === id)
 )
 
-Mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() =>
