@@ -1,6 +1,6 @@
 import LocalStrategy from 'passport-local'
 import bcrypt from 'bcrypt'
-import { Sudoer } from './scripts/db.js'
+import { Sudoer } from './db.js'
 
 function initialize(passport) {
 	passport.use(

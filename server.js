@@ -9,7 +9,7 @@ import login from './routes/login.js'
 import register from './routes/register.js'
 import logout from './routes/logout.js'
 import { checkAuthenticated } from './scripts/auth.js'
-import initializePassport from './passport-config.js'
+import initializePassport from './scripts/passport-config.js'
 
 const app = express()
 
