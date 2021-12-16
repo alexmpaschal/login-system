@@ -3,11 +3,11 @@ import { checkNotAuthenticated } from '../scripts/auth.js'
 import passport from 'passport'
 const router = express.Router()
 
-router.get('/', checkNotAuthenticated, (req, res) => {
+router.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
 })
   
-router.post('/', checkNotAuthenticated, 
+router.post('/login', checkNotAuthenticated, 
 passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',

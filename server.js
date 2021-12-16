@@ -50,11 +50,11 @@ app.get('/', checkAuthenticated, (req, res) => {
     res.render('index.ejs', { name: req.user.name })
 })
 
-app.use('/login', login)
+app.use(login)
 
-app.use('/register', register)
+app.use(register)
 
-app.use('/logout', logout)
+app.use(logout)
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)

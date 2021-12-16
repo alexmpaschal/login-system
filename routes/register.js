@@ -5,11 +5,11 @@ import { Sudoer } from '../scripts/db.js'
 
 const router = express.Router()
 
-router.get('/', checkNotAuthenticated, (req, res) => {
+router.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
 })
   
-router.post('/', checkNotAuthenticated, async (req, res) => {
+router.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         
