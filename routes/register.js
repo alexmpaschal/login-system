@@ -1,7 +1,7 @@
 import express from 'express'
 import { checkNotAuthenticated } from '../scripts/auth.js'
 import bcrypt from 'bcrypt'
-import { Sudoer } from '../scripts/db.js'
+import { User } from '../scripts/db.js'
 
 const router = express.Router()
 
@@ -13,12 +13,12 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         
-        const newSudoer = new Sudoer({
+        const newUser = new User({
             name: req.body.name,
             email: req.body.email,
             password: hashedPassword
         })
-        newSudoer.save()
+        newUser.save()
 
         res.redirect('/login')
     } catch {

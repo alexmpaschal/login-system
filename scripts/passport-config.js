@@ -1,11 +1,11 @@
 import LocalStrategy from 'passport-local'
 import bcrypt from 'bcrypt'
-import { Sudoer } from './db.js'
+import { User } from './db.js'
 
 function initialize(passport) {
 	passport.use(
 		new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-			Sudoer.findOne({ email: email })
+			User.findOne({ email: email })
 			.then((user) => {
 				if (!user) {
 					return done(null, false, { message: 'Email not registered' })	
@@ -26,7 +26,7 @@ function initialize(passport) {
 		done(null, user.id)
 	})
 	passport.deserializeUser(function(id, done) {
-		Sudoer.findById(id, function(err, user) {
+		User.findById(id, function(err, user) {
 			done(err, user)
 		})
 	})

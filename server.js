@@ -10,6 +10,7 @@ import register from './routes/register.js'
 import logout from './routes/logout.js'
 import { checkAuthenticated } from './scripts/auth.js'
 import initializePassport from './scripts/passport-config.js'
+import { User } from './scripts/db.js'
 
 const app = express()
 
@@ -21,8 +22,8 @@ const PORT = process.env.PORT || 3000
 
 initializePassport(
     passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
+    email => User.find(user => user.email === email),
+    id => User.find(user => user.id === id)
 )
 
 mongoose.connect(process.env.MONGODB_URI, {

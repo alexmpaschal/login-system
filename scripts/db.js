@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const SudoerSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name :{
         type: String,
         required: true
@@ -19,4 +19,4 @@ const SudoerSchema = new mongoose.Schema({
     }
 })
 
-export const Sudoer = mongoose.model('User', SudoerSchema)
+export const User = mongoose.model('User', userSchema)
