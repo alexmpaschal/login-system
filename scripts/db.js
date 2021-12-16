@@ -1,6 +1,6 @@
-import Mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
-const SudoerSchema = new Mongoose.Schema({
+const SudoerSchema = new mongoose.Schema({
     name :{
         type: String,
         required: true
@@ -19,4 +19,4 @@ const SudoerSchema = new Mongoose.Schema({
     }
 })
 
-export const Sudoer = Mongoose.model('User', SudoerSchema)
+export const Sudoer = mongoose.model('User', SudoerSchema)
