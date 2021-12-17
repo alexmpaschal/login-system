@@ -8,22 +8,28 @@ const router = express.Router()
 router.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
 })
-  
-router.post('/register', checkNotAuthenticated, async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        
-        const newUser = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        newUser.save()
 
-        res.redirect('/login')
-    } catch {
-        res.redirect('/register')
-    }
+router.post('/register', checkNotAuthenticated, async (req, res) => {
+    const { name, email, password } = req.body
+    
+    User.findOne({ email: email })
+    .then(async (user) => {
+        if (user) {
+            const emailRegisteredError = { message: "Email already registered" }
+            res.render('register.ejs', { emailRegisteredError, name, email, password })
+        } else {
+            const hashedPassword = await bcrypt.hash(password, 10)
+            
+            const newUser = new User({
+                name: name,
+                email: email,
+                password: hashedPassword
+            })
+            newUser.save()
+    
+            res.redirect('/login')
+        }
+    })
 })
 
 export default router
