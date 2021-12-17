@@ -1,6 +1,6 @@
 # Login System
  
-This is a basic login system using Node.js, Express.js, Passport.js, and MongoDB.
+This is a basic login system created with Node.js, Express.js, Passport.js, and MongoDB.
 
 ------
 
