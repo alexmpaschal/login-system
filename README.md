@@ -25,7 +25,7 @@ This is a basic login system created with Node.js, Express.js, Passport.js, and 
 
 		> node server.js
 
-6. Open a browser and navigate to [http://localhost:3000](http://localhost:3000) or to the custom port you assigned in the ``.env`` file. 
+6. Open a browser and navigate to [http://localhost:3000](http://localhost:3000). 
 
 ------
 
