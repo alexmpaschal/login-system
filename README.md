@@ -12,7 +12,7 @@ This is a basic login system created with Node.js, Express.js, Passport.js, and 
 		> cd login-system
 		> npm install
 
-3. Create a ``.env`` file and put the following variables:
+3. Create a ``.env`` file and put the following environmental variables in it:
 
     - [MONGODB_URI](https://docs.mongodb.com/manual/reference/connection-string/)
     - [SESSION_SECRET](https://expressjs.com/en/resources/middleware/session.html)
